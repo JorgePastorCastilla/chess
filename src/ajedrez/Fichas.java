@@ -10,12 +10,24 @@ package ajedrez;
  * @author ifc33a
  */
 public abstract class Fichas {
+
     //declarar metodos abstractos para las subclases
+    int xinicial;
+    int yinicial;
+    int x;
+    int y;
+
     public abstract boolean movimiento();
+
+    public void posicion(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+    boolean negro;
     public boolean muerto = false;
-    enum color {blanco,negro};
-    String color;
-   
+
+    enum color {
+        blanco, negro
+    };
 
 }
-

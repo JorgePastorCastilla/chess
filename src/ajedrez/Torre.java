@@ -3,14 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ajedrez.fichas;
+package ajedrez;
 
 /**
  *
  * @author ifc33a
  */
-public class Torre extends ajedrez.Fichas {
-        public boolean movimiento(){
+public class Torre extends Fichas {
+   public Torre(int x, int y, color color) {
+        xinicial = this.x = x;
+        yinicial = this.y = y;
+        negro = (color == color.negro);
+    }
+
+    public Torre(color color) {
+        negro = (color == color.negro);
+    }
+    public boolean movimiento() {
         return true;
     }
 }

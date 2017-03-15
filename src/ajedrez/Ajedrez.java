@@ -17,7 +17,6 @@ public class Ajedrez {
     public static void main(String[] args) {
         // TODO code application logic here
         Tablero tablero = new Tablero();
-        tablero.ini();
         tablero.mostrar();
     }
     

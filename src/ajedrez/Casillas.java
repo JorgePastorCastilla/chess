@@ -13,11 +13,16 @@ public class Casillas {
     
     enum colores {blanco, negro};
     boolean negro;
-    boolean ocupat = false;
+    Fichas ficha;
+    boolean ocupada = false;
     public Casillas(colores colorcillo){
         negro = (colorcillo == colores.negro) ? true : false;
     }
     public String toString(){
         return (negro) ? "N" : "B" ;
+    }
+    public void guardarFicha(Fichas guardar){
+        this.ficha = guardar;
+        ocupada = true;
     }
 }
