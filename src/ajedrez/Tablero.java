@@ -18,50 +18,40 @@ public class Tablero {
     enum fichas {
         Peon, Alfil, Caballo, Torre, Reina, Rey
     }*/
-//fichas negras
-    
+    public void chessIni(){
+        for(int x = 0;x<2;x++){
+            for (int y = 0;y<8;y++){
+                if (x%2==0){
+                    if((y==0) || (y ==7)) tablero[x][y].guardarFicha(new Torre(x,y,Fichas.color.blanco));
+                    if((y==1) || (y ==6)) tablero[x][y].guardarFicha(new Caballo(x,y,Fichas.color.blanco));
+                    if((y==2) || (y ==5)) tablero[x][y].guardarFicha(new Alfil(x,y,Fichas.color.blanco));
+                    if(y==3) tablero[x][y].guardarFicha(new Rey(x,y,Fichas.color.blanco));
+                    if(y==4) tablero[x][y].guardarFicha(new Reina(x,y,Fichas.color.blanco));
+                }else{
+                    tablero[x][y].guardarFicha(new Peon(x,y,Fichas.color.blanco));
+                }
+            }
+        }
+        for(int x = 6;x<8;x++){
+            for (int y = 0;y<8;y++){
+                if (x%2!=0){
+                    if((y==0) || (y ==7)) tablero[x][y].guardarFicha(new Torre(x,y,Fichas.color.negro));
+                    if((y==1) || (y ==6)) tablero[x][y].guardarFicha(new Caballo(x,y,Fichas.color.negro));
+                    if((y==2) || (y ==5)) tablero[x][y].guardarFicha(new Alfil(x,y,Fichas.color.negro));
+                    if(y==3) tablero[x][y].guardarFicha(new Rey(x,y,Fichas.color.negro));
+                    if(y==4) tablero[x][y].guardarFicha(new Reina(x,y,Fichas.color.negro));
+                }else{
+                    tablero[x][y].guardarFicha(new Peon(x,y,Fichas.color.negro));
+                }
+            }
+        }
+    }
     
     public Tablero() {
         ini();
+        chessIni();
     }
-    Fichas[] blancas = {
-        new Torre(0,0,Fichas.color.blanco),
-        new Caballo(0,1,Fichas.color.blanco),
-        new Alfil(0,2,Fichas.color.blanco),
-        new Rey(0,3,Fichas.color.blanco),
-        new Reina(0,4,Fichas.color.blanco),
-        new Alfil(0,5,Fichas.color.blanco),
-        new Caballo(0,6,Fichas.color.blanco),
-        new Torre(0,7,Fichas.color.blanco),
-        
-      new Peon(1,0,Fichas.color.blanco),
-      new Peon(1,1,Fichas.color.blanco),
-      new Peon(1,2,Fichas.color.blanco),
-      new Peon(1,3,Fichas.color.blanco),
-      new Peon(1,4,Fichas.color.blanco),
-      new Peon(1,5,Fichas.color.blanco),
-      new Peon(1,6,Fichas.color.blanco),
-      new Peon(1,7,Fichas.color.blanco),
-    };
-        Fichas[] negras = {
-        new Torre(7,0,Fichas.color.negro),
-        new Caballo(7,1,Fichas.color.negro),
-        new Alfil(7,2,Fichas.color.negro),
-        new Rey(7,3,Fichas.color.negro),
-        new Reina(7,4,Fichas.color.negro),
-        new Alfil(7,5,Fichas.color.negro),
-        new Caballo(7,6,Fichas.color.negro),
-        new Torre(7,7,Fichas.color.negro),
-        
-      new Peon(6,0,Fichas.color.negro),
-      new Peon(6,1,Fichas.color.negro),
-      new Peon(6,2,Fichas.color.negro),
-      new Peon(6,3,Fichas.color.negro),
-      new Peon(6,4,Fichas.color.negro),
-      new Peon(6,5,Fichas.color.negro),
-      new Peon(6,6,Fichas.color.negro),
-      new Peon(6,7,Fichas.color.negro),
-    };
+    
     int fil = 8;
     int col = 8;
     Casillas[][] tablero = new Casillas[fil][col];
@@ -80,7 +70,7 @@ public class Tablero {
 
         for (int x = 0; x < fil; x++) {
             for (int y = 0; y < col; y++) {
-                System.out.print(tablero[x][y] + " ");
+                System.out.print(tablero[x][y]+ " ");
             }
             System.out.println("");
         }
@@ -88,7 +78,7 @@ public class Tablero {
     /*
     public void colocarFichaInicial(int x, int y, Fichas ficha){
         tablero[x][y].guardarFicha(ficha);
-        ficha.posicionInicial(x,y);
+        ficha.posicion(x,y);
     }*/
 
 }

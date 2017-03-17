@@ -14,6 +14,7 @@ public class Torre extends Fichas {
         xinicial = this.x = x;
         yinicial = this.y = y;
         negro = (color == color.negro);
+        letra= "T";
     }
 
     public Torre(color color) {

@@ -14,10 +14,9 @@ public class Ajedrez {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
-        Tablero tablero = new Tablero();
-        tablero.mostrar();
-    }
+public static void main(String[] args) {
+Tablero tablero = new Tablero();
+tablero.mostrar();
+}
     
 }

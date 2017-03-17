@@ -14,6 +14,7 @@ public class Rey  extends Fichas {
         xinicial = this.x = x;
         yinicial = this.y = y;
         negro = (color == color.negro);
+        letra= "K";
     }
 
     public Rey(color color) {

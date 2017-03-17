@@ -15,6 +15,7 @@ public class Peon extends Fichas {
         xinicial = this.x = x;
         yinicial = this.y = y;
         negro = (color == color.negro);
+        letra= "P";
     }
 
     public Peon(color color) {

@@ -18,11 +18,22 @@ public class Casillas {
     public Casillas(colores colorcillo){
         negro = (colorcillo == colores.negro) ? true : false;
     }
+    /*
     public String toString(){
         return (negro) ? "N" : "B" ;
-    }
+    }*/
     public void guardarFicha(Fichas guardar){
         this.ficha = guardar;
         ocupada = true;
+    }
+    public void desocupar(){
+        ocupada = false;
+    }
+    public String toString(){
+        if(!ocupada){
+            return "#";
+        }else{
+            return ficha.toString();
+        }
     }
 }

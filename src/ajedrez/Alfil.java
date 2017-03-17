@@ -14,6 +14,7 @@ public class Alfil extends Fichas {
         xinicial = this.x = x;
         yinicial = this.y = y;
         negro = (color == color.negro);
+        letra= "A";
     }
 
     public Alfil(color color) {
