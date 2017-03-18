@@ -28,10 +28,11 @@ public class Casillas {
     }
     public void desocupar(){
         ocupada = false;
+        this.ficha = null;
     }
     public String toString(){
         if(!ocupada){
-            return "#";
+            return (negro) ? "☒" : "☐";
         }else{
             return ficha.toString();
         }

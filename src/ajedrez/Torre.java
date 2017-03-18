@@ -10,12 +10,17 @@ package ajedrez;
  * @author ifc33a
  */
 public class Torre extends Fichas {
+    int[][] movimientos ={
+    {0,1},
+    {0,-1},
+    {1,0},
+    {-1,0}
+};
    public Torre(int x, int y, color color) {
         xinicial = this.x = x;
         yinicial = this.y = y;
         negro = (color == color.negro);
-        letra= "T";
-    }
+        representacion= (negro) ? "♖" : "♜";  }
 
     public Torre(color color) {
         negro = (color == color.negro);

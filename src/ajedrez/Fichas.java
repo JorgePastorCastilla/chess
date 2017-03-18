@@ -16,7 +16,9 @@ public abstract class Fichas {
     int yinicial;
     int x;
     int y;
-    String letra= "F";
+    int[][] movimientos;
+
+    String representacion ;
 
     public abstract boolean movimiento();
 
@@ -30,8 +32,9 @@ public abstract class Fichas {
     enum color {
         blanco, negro
     };
-    public String toString(){
-        return letra;
+
+    public String toString() {
+        return representacion;
     }
 
 }

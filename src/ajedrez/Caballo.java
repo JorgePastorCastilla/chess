@@ -14,7 +14,7 @@ public class Caballo extends Fichas {
         xinicial = this.x = x;
         yinicial = this.y = y;
         negro = (color == color.negro);
-        letra= "C";
+        representacion= (negro) ? "♘" : "♞";
     }
 
     public Caballo(color color) {

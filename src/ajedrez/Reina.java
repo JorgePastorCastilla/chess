@@ -14,8 +14,7 @@ public class Reina extends Fichas {
         xinicial = this.x = x;
         yinicial = this.y = y;
         negro = (color == color.negro);
-        letra= "Q";
-    }
+        representacion= (negro) ? "♕" : "♛";    }
 
     public Reina(color color) {
         negro = (color == color.negro);

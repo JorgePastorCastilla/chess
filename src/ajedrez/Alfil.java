@@ -7,14 +7,14 @@ package ajedrez;
 
 /**
  *
- * @author ifc33a
+ * @author ifc33afdasfafas
  */
 public class Alfil extends Fichas {
    public Alfil(int x, int y, color color) {
         xinicial = this.x = x;
         yinicial = this.y = y;
         negro = (color == color.negro);
-        letra= "A";
+        representacion= (negro) ? "♗" : "♝";
     }
 
     public Alfil(color color) {
