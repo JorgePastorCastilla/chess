@@ -5,36 +5,33 @@
  */
 package ajedrez;
 
+import java.io.*;
 /**
  *
  * @author ifc33a
  */
-public abstract class Fichas {
+public abstract class Fichas implements Serializable{
 
     //declarar metodos abstractos para las subclases
-    int xinicial;
-    int yinicial;
     int x;
     int y;
-    int[][] movimientos;
 
-    String representacion ;
+    String representacion ; 
 
-    public abstract boolean movimiento();
+    //public abstract boolean movimiento();
 
-    public void posicion(int x, int y) {
+    public void setPosicion(int x, int y) {
         this.x = x;
         this.y = y;
     }
     boolean negro;
-    public boolean muerto = false;
+    public boolean matar = false;
 
     enum color {
         blanco, negro
     };
-
-    public String toString() {
-        return representacion;
-    }
+    public abstract boolean movimiento(int x, int y, Tablero tablero);
+    //public boolean matar(int x, int y, Tablero tablero){return false;}
+    public abstract String toString();
 
 }

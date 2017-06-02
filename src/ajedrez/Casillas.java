@@ -16,14 +16,12 @@ public class Casillas {
     Fichas ficha;
     boolean ocupada = false;
     public Casillas(colores colorcillo){
-        negro = (colorcillo == colores.negro) ? true : false;
+        
+        negro = (colorcillo == colores.negro);
     }
-    /*
-    public String toString(){
-        return (negro) ? "N" : "B" ;
-    }*/
+
     public void guardarFicha(Fichas guardar){
-        this.ficha = guardar;
+        ficha = guardar;
         ocupada = true;
     }
     public void desocupar(){

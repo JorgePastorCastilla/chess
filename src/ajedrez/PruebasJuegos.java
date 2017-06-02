@@ -9,10 +9,10 @@ package ajedrez;
  *
  * @author ifc33a
  */
-public class Ajedrez extends Juegos{
-    
-    public void inicializarJuego(Tablero tablero){
-                for (int y = 0; y < 2; y++) {
+public class PruebasJuegos {
+
+    public static void ajedrez(Tablero tablero) {
+        for (int y = 0; y < 2; y++) {
             for (int x = 0; x < 8; x++) {
                 if (y % 2 == 0) {
                     if ((x == 0) || (x == 7)) {
@@ -59,18 +59,29 @@ public class Ajedrez extends Juegos{
             }
         }
     }
-    public boolean ganar(Tablero tablero){
-                int c = 0;
-        for (int CX = 0; CX < tablero.col; CX++) {
-            for (int CY = 0; CY < tablero.fil; CY++) {
-                if (tablero.tablero[CX][CY].ocupada && (tablero.tablero[CX][CY].ficha instanceof Rey)) {
-                    c++;
-                }
 
+    public static void soldatsRey(Tablero tablero) {
+        for (int y = 0; y < 2; y++) {
+            for (int x = 0; x < 8; x++) {
+                if (y % 2 == 0) {
+                    if (x == 3) {
+                        tablero.tablero[x][y].guardarFicha(new Rey(x, y, Fichas.color.blanco));
+                    }
+                } else {
+                    tablero.tablero[x][y].guardarFicha(new Peon(x, y, Fichas.color.blanco));
+                }
             }
         }
-        return (c < 2);
+        for (int y = 6; y < 8; y++) {
+            for (int x = 0; x < 8; x++) {
+                if (y % 2 != 0) {
+                    if (x == 3) {
+                        tablero.tablero[x][y].guardarFicha(new Rey(x, y, Fichas.color.negro));
+                    }
+                } else {
+                    tablero.tablero[x][y].guardarFicha(new Peon(x, y, Fichas.color.negro));
+                }
+            }
+        }
     }
-    
-    
 }

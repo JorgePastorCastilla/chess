@@ -11,52 +11,65 @@ package ajedrez;
  */
 public class Peon extends Fichas {
 
-    int[][] movimientos= {
-        {0,1},      // 0
-        {1,1},      // 1
-        {-1,1},     // 2
-        {0,-1},     // 3
-        {1,-1},     // 4
-        {-1,-1},    // 5
-        {0,2},      // 6
-        {0,-2}      // 7
-    };
-    
-    
     public Peon(int x, int y, color color) {
-        xinicial = this.x = x;
-        yinicial = this.y = y;
+        this.x = x;
+        this.y = y;
         negro = (color == color.negro);
-        representacion= (negro) ? "♙" : "♟" ;
+        representacion = (negro) ? "♟" : "♙";
     }
 
-    public Peon(color color) {
-        negro = (color == color.negro);
+
+
+    public String toString() {
+        return (negro) ? "♟" : "♙";
     }
-    public boolean movimiento(){
-        return true;
-    }
-    public boolean movimiento(int x, int y) {
-        if (negro) {
-            for(int c = 0;c < 3;c++){
-                if ( (this.x + movimientos[c][0] == x) && (this.y + movimientos[c][1] == y)) {
-                    this.x = x;
-                    this.y = y;
-                    return true;
+
+    public boolean movimiento(int x, int y, Tablero tablero) {
+
+        MovimientosPeon moviment = new MovimientosPeon();
+        return moviment.movimientoValido(x, y, this, tablero);
+        /*
+        if (tablero.esta(x, y)) {
+
+            if (tablero.tablero[x][y].ocupada) {
+
+                if (tablero.tablero[x][y].ficha.negro == this.negro) {
+                    return false;
                 }
             }
-           /* if ( ( (this.x == this.xinicial) && (this.y == this.yinicial) ) && ((this.x + movimientos[6][0] == x) && (this.y + movimientos[6][1] == y)) ){    
-            }*/
-        }else{
-           for(int c = 3;c < 6;c++){
-                if ( (this.x + movimientos[c][0] == x) && (this.y + movimientos[c][1] == y)) {
-                    this.x = x;
-                    this.y = y;
-                    return true;
+            int dX = 0, dY = 0;
+
+            if ((x == this.x) && (y == this.y)) {
+                return false;
+            }
+
+            dX = (x > this.x) ? +1 : dX;
+            dX = (x < this.x) ? -1 : dX;
+
+            dY = (y > this.y) ? +1 : dY;
+            dY = (y < this.y) ? -1 : dY;
+
+            if ( ( (y - this.y) == ( (negro) ? -1 : +1)) && (Math.abs(x - this.x) == 0) && !(tablero.tablero[x][y].ocupada) ) {
+                return true;
+            }
+            
+            if ( ( (Math.abs(y - this.y) == ( (negro) ? -2 : +2) ) && (Math.abs(x - this.x) == Math.abs(0) ) ) && (this.y == ( (negro) ? 6 : 1) ) ) {
+                
+                for (int c = 1; c < (Math.abs(y - this.y)); c++) {
+                    
+                    if (tablero.tablero[this.x + c * dX][this.y + c * dY].ocupada) {
+                        return false;
+                    }
                 }
-            } 
+                return true;
+            }
+            
+            if ( ( (y - this.y) == ( (negro) ? -1 : +1) ) && (Math.abs(x - this.x) == Math.abs(1) ) && (tablero.tablero[x][y].ocupada) ) {
+                return true;
+            }
         }
         return false;
+        */
     }
 
 }

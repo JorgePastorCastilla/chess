@@ -11,15 +11,26 @@ package ajedrez;
  */
 public class Rey  extends Fichas {
    public Rey(int x, int y, color color) {
-        xinicial = this.x = x;
-        yinicial = this.y = y;
+        this.x = x;
+        this.y = y;
         negro = (color == color.negro);
-        representacion= (negro) ? "♔" : "♚";    }
+        representacion= (negro) ? "♚" : "♔";    }
 
     public Rey(color color) {
         negro = (color == color.negro);
     }
-    public boolean movimiento() {
-        return true;
+    public void setPosicion(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
+        public String toString(){
+        return (negro) ? "♚" : "♔";
+    }
+    public boolean movimiento(int x, int y, Tablero tablero) {
+        MovimientosRey moviment = new MovimientosRey();
+        return moviment.movimientoValido(x, y, this, tablero);
+    }
+    /*
+    comprovar que todas las piezas del enemigo no puedan matar al rey en la posicion final
+    */
 }
